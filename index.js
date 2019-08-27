@@ -21,6 +21,9 @@ let template = `<div class="traits-container">
     ${trait("edges", "Edges")}
     ${trait("source", "Source")}
     ${trait("powers", "Powers")}
+    <div class="trait-div">
+        <button onClick="prettify()">Prettify</button>
+    </div>
 </div>`
 
 let getter = function(target){

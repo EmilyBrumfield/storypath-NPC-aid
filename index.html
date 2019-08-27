@@ -7,15 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="index.css" rel="stylesheet">
     
-    <title>Template</title>
+    <title>Storypath NPC Assistant</title>
+    <h1 style="text-align: center">Storypath NPC Assistant</h1>
+    <h2 style="text-align: center">By Emily Brumfield</h2>
+    <p>(This is a fan-made writing utility unaffiliated with Onyx Path.)</p>
 
   </head>
 
   <body>
     <main>
-      <div id="app"></div>
-      <button onClick="prettify()">Prettify</button>
-      <div id="output"></div>
+      <p class="instructions">Instructions: Fill out the form, using the tab key to navigate to the next entry or shift-tab to go back.
+        Hit the button, copy/paste the text below into your document. Asterisks convert to Storypath dot symbols.</p>
+      <br />
+      <div class="splitter">
+        <div id="app"></div>
+        <div id="output"></div>
+      </div>
     </main>
     <script src="index.js"></script>
   </body>
