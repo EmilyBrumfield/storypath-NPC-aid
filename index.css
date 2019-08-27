@@ -1,0 +1,16 @@
+.traits-container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.trait-div {
+    display: grid;
+    grid-template-columns: 1fr 2fr 5fr;
+    grid-auto-rows: minmax(2em, auto);
+    grid-gap: 20px;
+    margin-bottom: 20px;
+}
+
+#output {
+    margin-top: 20px;
+}
