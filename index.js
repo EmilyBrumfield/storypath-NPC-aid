@@ -22,7 +22,9 @@ let template = `<div class="traits-container">
     ${trait("source", "Source")}
     ${trait("powers", "Powers")}
     <div class="trait-div">
-        <button onClick="prettify()">Prettify</button>
+        <button onClick="prettify()">Format</button>
+        <button onClick="clearInput()">Clear Input</button>
+        <br /><button onClick="clearAll()">Clear All</button>
     </div>
 </div>`
 
@@ -44,9 +46,31 @@ let prettify = function(){
         <b>Edges: </b> ${getter("edges")}<br />
         <b>Source: </b> ${getter("source")}<br />
         <b>Powers: </b> ${getter("powers")}<br />
+        <br />
     </div>`
 
-    document.getElementById("output").innerHTML = output;
+    document.getElementById("output").innerHTML += output;
+}
+
+let clearAll = function(){
+    if (confirm("Are you sure you want to clear the entire page?")) {
+        document.getElementById("output").innerHTML = "";
+    }
+}
+
+let clearInput = function(){
+    if (confirm("Are you sure you want to clear the input fields?")) {
+        document.getElementById("name").value = "";
+        document.getElementById("primary").value = "";
+        document.getElementById("secondary").value = "";
+        document.getElementById("desperation").value = "";
+        document.getElementById("enhancement").value = "";
+        document.getElementById("defense").value = "";
+        document.getElementById("health").value = "";
+        document.getElementById("edges").value = "";
+        document.getElementById("source").value = "";
+        document.getElementById("powers").value = "";
+    }
 }
 
 document.getElementById("app").innerHTML = template;
