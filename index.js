@@ -1,3 +1,5 @@
+//TODO: Make this read from an array of objects containing name and description
+
 
 let trait = function(label, description){
     return `<div class="trait-div">
@@ -34,6 +36,7 @@ let getter = function(target){
     return value.replace(regex, "•");
 }
 
+
 let prettify = function(){
     let output = `<div>
         <b>${getter("name")}</b><br />
@@ -50,16 +53,19 @@ let prettify = function(){
     </div>`
 
     document.getElementById("output").innerHTML += output;
+    saveOld();
 }
 
 let clearAll = function(){
     if (confirm("Are you sure you want to clear the entire page?")) {
-        document.getElementById("output").innerHTML = "";
+        saveOld();
+        document.getElementById("output").innerHTML = "";        
     }
 }
 
 let clearInput = function(){
     if (confirm("Are you sure you want to clear the input fields?")) {
+        saveOld();
         document.getElementById("name").value = "";
         document.getElementById("primary").value = "";
         document.getElementById("secondary").value = "";
@@ -73,4 +79,41 @@ let clearInput = function(){
     }
 }
 
+let saveOld = function(){
+
+    let saveInput = function(keyName){
+        window.localStorage.setItem(keyName, getter(keyName));
+    }
+
+    saveInput("name");
+    saveInput("primary");
+    saveInput("secondary");
+    saveInput("desperation");
+    saveInput("enhancement");
+    saveInput("defense");
+    saveInput("health");
+    saveInput("edges");
+    saveInput("source");
+    saveInput("powers");
+}
+
+let loadOld = function(){
+
+    let loadInput = function(keyName){
+        document.getElementById(keyName).value = window.localStorage.getItem(keyName);
+    }
+    
+    loadInput("name");
+    loadInput("primary");
+    loadInput("secondary");
+    loadInput("desperation");
+    loadInput("enhancement");
+    loadInput("defense");
+    loadInput("health");
+    loadInput("edges");
+    loadInput("source");
+    loadInput("powers");
+}
+
 document.getElementById("app").innerHTML = template;
+loadOld();
