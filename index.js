@@ -6,10 +6,15 @@ let trait = function(label, description){
 }
 
 let template = `<div class="traits-container">
-    <div class="trait-div">
-        <div>Trait</div>
-        <div>Pool / Description</div>
-    </div>
+    
+    <div class="button-div">
+    <button onClick="setMinor()">Minor</button>
+    <button onClick="setMedium()">Medium</button>
+    <button onClick="setModerate()">Moderate</button>
+    <button onClick="setMajor()">Major</button>
+    <button onClick="setColossal()">Colossal</button>
+    </div>    
+    
     ${trait("name", "Name")}
     ${trait("primary", "Primary Pool")}
     ${trait("secondary", "Secondary Pool")}
@@ -20,10 +25,10 @@ let template = `<div class="traits-container">
     ${trait("edges", "Edges")}
     ${trait("source", "Source")}
     ${trait("powers", "Powers")}
-    <div class="trait-div">
+    <div class="button-div">
         <button onClick="prettify()">Format</button>
         <button onClick="clearInput()">Clear Input</button>
-        <br /><button onClick="clearAll()">Clear All</button>
+        <button onClick="clearAll()">Clear All</button>
     </div>
 </div>`
 
@@ -50,19 +55,16 @@ let prettify = function(){
     </div>`
 
     document.getElementById("output").innerHTML += output;
-    saveOld();
 }
 
 let clearAll = function(){
     if (confirm("Are you sure you want to clear the entire page?")) {
-        saveOld();
         document.getElementById("output").innerHTML = "";        
     }
 }
 
 let clearInput = function(){
     if (confirm("Are you sure you want to clear the input fields?")) {
-        saveOld();
         document.getElementById("name").value = "";
         document.getElementById("primary").value = "";
         document.getElementById("secondary").value = "";
@@ -74,6 +76,82 @@ let clearInput = function(){
         document.getElementById("source").value = "";
         document.getElementById("powers").value = "";
     }
+}
+
+let setMinor = function(){
+    //if (confirm("Are you sure you want to clear the input fields?")) {
+        document.getElementById("name").value = "";
+        document.getElementById("primary").value = "6 (";
+        document.getElementById("secondary").value = "4 (";
+        document.getElementById("desperation").value = "2";
+        document.getElementById("enhancement").value = "0";
+        document.getElementById("defense").value = "3";
+        document.getElementById("health").value = "3";
+        document.getElementById("edges").value = "4 dots";
+        document.getElementById("source").value = "Quantum ** (20 Quantum points)";
+        document.getElementById("powers").value = "2 dots";
+    //}
+}
+
+let setMedium = function(){
+    //if (confirm("Are you sure you want to clear the input fields?")) {
+        document.getElementById("name").value = "";
+        document.getElementById("primary").value = "7 (";
+        document.getElementById("secondary").value = "5 (";
+        document.getElementById("desperation").value = "3";
+        document.getElementById("enhancement").value = "1";
+        document.getElementById("defense").value = "3";
+        document.getElementById("health").value = "4";
+        document.getElementById("edges").value = "5 dots";
+        document.getElementById("source").value = "Quantum *** (25 Quantum points)";
+        document.getElementById("powers").value = "3 dots";
+    //}
+}
+
+let setModerate = function(){
+    //if (confirm("Are you sure you want to clear the input fields?")) {
+        document.getElementById("name").value = "";
+        document.getElementById("primary").value = "8 (";
+        document.getElementById("secondary").value = "6 (";
+        document.getElementById("desperation").value = "4";
+        document.getElementById("enhancement").value = "2";
+        document.getElementById("defense").value = "4";
+        document.getElementById("health").value = "5";
+        document.getElementById("edges").value = "6 dots";
+        document.getElementById("source").value = "Quantum **** (30 Quantum points)";
+        document.getElementById("powers").value = "4 dots";
+    //}
+}
+
+let setMajor = function(){
+    //if (confirm("Are you sure you want to clear the input fields?")) {
+        document.getElementById("name").value = "";
+        document.getElementById("primary").value = "9 (";
+        document.getElementById("secondary").value = "7 (";
+        document.getElementById("desperation").value = "5";
+        document.getElementById("enhancement").value = "4";
+        document.getElementById("defense").value = "4";
+        document.getElementById("health").value = "6";
+        document.getElementById("edges").value = "7 dots";
+        document.getElementById("source").value = "Quantum ***** (35 Quantum points)";
+        document.getElementById("powers").value = "5 dots";
+    //}
+}
+
+
+let setColossal = function(){
+    //if (confirm("Are you sure you want to clear the input fields?")) {
+        document.getElementById("name").value = "";
+        document.getElementById("primary").value = "10 (";
+        document.getElementById("secondary").value = "8 (";
+        document.getElementById("desperation").value = "6";
+        document.getElementById("enhancement").value = "5";
+        document.getElementById("defense").value = "5";
+        document.getElementById("health").value = "8";
+        document.getElementById("edges").value = "8 dots";
+        document.getElementById("source").value = "Quantum ***** * (40 Quantum points)";
+        document.getElementById("powers").value = "6 dots";
+    //}
 }
 
 /*
