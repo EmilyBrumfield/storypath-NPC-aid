@@ -1,6 +1,3 @@
-//TODO: Make this read from an array of objects containing name and description
-
-
 let trait = function(label, description){
     return `<div class="trait-div">
         <label for=${label}>${description}</label>
@@ -79,6 +76,7 @@ let clearInput = function(){
     }
 }
 
+/*
 let saveOld = function(){
 
     let saveInput = function(keyName){
@@ -114,6 +112,7 @@ let loadOld = function(){
     loadInput("source");
     loadInput("powers");
 }
+*/
 
 document.getElementById("app").innerHTML = template;
-loadOld();
+//loadOld();
