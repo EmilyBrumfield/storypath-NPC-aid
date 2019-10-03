@@ -38,20 +38,28 @@ let getter = function(target){
     return value.replace(regex, "•");
 }
 
+let checker = function(target, title){
+    if (getter(target) != "") {
+        return `<b>${title}: </b>` + getter(target) + `<br />`
+    }
+    else {
+        return ""
+    }
+}
 
 let prettify = function(){
-    let output = `<div>
-        <b>${getter("name")}</b><br />
-        <b>Primary Pool: </b> ${getter("primary")}<br />
-        <b>Secondary Pool: </b> ${getter("secondary")}<br />
-        <b>Desperation Pool: </b> ${getter("desperation")}<br />
-        <b>Enhancement: </b> ${getter("enhancement")}<br />
-        <b>Defense: </b> ${getter("defense")}<br />
-        <b>Health: </b> ${getter("health")}<br />
-        <b>Edges: </b> ${getter("edges")}<br />
-        <b>Source: </b> ${getter("source")}<br />
-        <b>Powers: </b> ${getter("powers")}<br />
-        <br />
+    let output = `<div>`
+    output += `<b>${getter("name")}</b><br />`
+    output += checker("primary", "Primary Pool")
+    output += checker("secondary", "Secondary Pool")
+    output += checker("desperation", "Desperation Pool")
+    output += checker("enhancement", "Enhancement")
+    output += checker("defense", "Defense")
+    output += checker("health", "Health")
+    output += checker("edges", "Edges")
+    output += checker("source", "Source")
+    output += checker("powers", "Powers")
+    output += `<br />
     </div>`
 
     document.getElementById("output").innerHTML += output;
